@@ -8,7 +8,7 @@ sudo mv ~/PintSizeFanManager.service /etc/systemd/system/
 sudo systemctl enable PintSizeFanManager.service
 sudo systemctl start PintSizeFanManager.service
 ```
-The temperature the fan activates at can be changed PintSizeFanManager.py, just change the number on the 5th line to whatever temperature you want. If you want it to activate at 50°C (122°F), you would make that line of code look like:
+The temperature the fan activates at can be changed PintSizeFanManager.py, just change the number on the 5th line to whatever temperature you want. If you want it to activate at 50°C (122°F), you would update that line of code to the following:
 ```
 onTemp = 50 #Temperature in celcius
 ``` 
