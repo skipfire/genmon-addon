@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rtmp:
+    container_name: genmon
+    image: genmon
+    environment:
+      - PUID=1024
+      - PGID=100
+#      - TZ=America/New_York
+      - TZ=America/Chicago
+    ports:
+      - 20022:22
+      - 38443:443
+      - 8000:8000
+    restart: unless-stopped
+    command: /bin/bash -c "/git/genmon/startgenmon.sh -p 3 start && tail -f /dev/null"
+#docker-compose up -d
