@@ -1,4 +1,3 @@
-#FROM debian:latest
 FROM python
 
 RUN apt update -y
@@ -11,12 +10,11 @@ EXPOSE 22
 #EXPOSE 443
 EXPOSE 8000
 
-RUN mkdir /git && cd /git && git clone https://github.com/jgyates/genmon.git
+RUN mkdir /git && cd /git && git clone http://github.com/jgyates/genmon.git
 
 RUN cd /git/genmon && sudo chmod 775 startgenmon.sh && chmod 775 genmonmaint.sh
 
-RUN /git/genmon/startgenmon.sh start
-#RUN /git/genmon/genmonmaint.sh -id
+RUN /git/genmon/genmonmaint.sh -i -n
 
 RUN sed -i 's/use_serial_tcp = False/use_serial_tcp = True/g' /etc/genmon/genmon.conf
 
