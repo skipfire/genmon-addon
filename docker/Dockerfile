@@ -1,4 +1,3 @@
-#FROM debian:latest
 FROM python
 
 RUN apt update -y
