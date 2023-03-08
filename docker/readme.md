@@ -5,7 +5,9 @@ Virtualized setups are intended for advanced users that already know what they a
 ## In progress
 Ignore the docker-compose, it is not ready.
 
-This is not yet done. There is a pending PR to fix no-prompt installs, and genmon does not start correctly, but once manually started it does run successfully.
+This is not yet done. There is a pending PR to fix no-prompt installs, and genmon does not start automatically, but if `/git/genmon/startgenmon.sh start` is called from the terminal it does start correctly.
+
+Preservation of configuration after refreshing the image is unknown, probably need to add some persistent volume definitions.
 
 ## Build & run
 This will change once the docker file and docker-compose files are finished, but for the moment the following commands will build the container and start it up exposing port 8000.  This is just a for-now bit of documentation.

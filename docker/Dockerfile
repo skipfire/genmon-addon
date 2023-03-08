@@ -15,6 +15,7 @@ RUN mkdir /git && cd /git && git clone http://github.com/jgyates/genmon.git
 RUN cd /git/genmon && sudo chmod 775 startgenmon.sh && chmod 775 genmonmaint.sh
 
 RUN /git/genmon/genmonmaint.sh -i -n
+RUN /git/genmon/startgenmon.sh start
 
 RUN sed -i 's/use_serial_tcp = False/use_serial_tcp = True/g' /etc/genmon/genmon.conf
 
