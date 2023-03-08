@@ -3,7 +3,7 @@ FROM python
 RUN apt update -y
 RUN apt upgrade -y
 
-#The timezone specified here just bypasses some required configuration, it is not configuring a persistent setting.
+#The timezone specified here just bypasses some required configuration, it does not appear to be configuring a persistent setting.
 RUN DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt install -y sudo cron net-tools nano
 
 EXPOSE 22
