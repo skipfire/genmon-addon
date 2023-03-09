@@ -7,19 +7,21 @@ RUN apt upgrade -y
 RUN DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt install -y sudo cron net-tools nano
 
 EXPOSE 22
-#EXPOSE 443
+EXPOSE 443
 EXPOSE 8000
 
 RUN mkdir /git && cd /git && git clone http://github.com/jgyates/genmon.git
 
 RUN cd /git/genmon && sudo chmod 775 startgenmon.sh && chmod 775 genmonmaint.sh
 
-RUN /git/genmon/genmonmaint.sh -i -n
+RUN /bin/bash /git/genmon/genmonmaint.sh -i -n
 RUN /git/genmon/startgenmon.sh start
 
 RUN sed -i 's/use_serial_tcp = False/use_serial_tcp = True/g' /etc/genmon/genmon.conf
 
-RUN /git/genmon/startgenmon.sh start
+CMD /git/genmon/startgenmon.sh start && tail -F /var/log/startup.log
 
+#Build docker image with:
 #docker build . -t genmon
-#docker run -it -p 8000:8000 -d genmon /bin/bash
+#Start the docker instance with:
+#docker run -it -p 8000:8000 -d genmon
