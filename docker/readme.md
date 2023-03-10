@@ -1,6 +1,6 @@
 # Docker!
 ## No support provided for virtualization
-Virtualized setups are intended for advanced users that already know what they are doing with the technologies are feel they can figure it out on their own.  Support will NOT be provided for docker or genmon in a docker, these will be files that "work on my machine".
+Virtualized setups are intended for advanced users that already know what they are doing with the technologies or feel they can figure it out on their own.  Support will NOT be provided for docker or genmon in a docker, these will be files that "work on my machine".
 
 These docker files are working, but additional changes may come and we welcome contributions and feedback.
 
