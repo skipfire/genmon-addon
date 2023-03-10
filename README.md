@@ -28,3 +28,14 @@ I welcome anyone contributing to the cause.
 
 ## OpenGenSet Open Source Intention
 The current plan is to have OpenGenSet be open source, though with restricted licensing. Some resources, such as circuit digrams, will not be opened until things are complete, and we reserve the right to change our minds on it.  When OpenGenSet is open sourced, it will be placed in its own repository and a link will be placed in this readme.
+
+## Running Genmon on Ubuntu
+This is quite easy, install Ubuntu and just a few commands.
+```
+sudo apt install cron git
+cd genmon/
+./genmonmaint.sh -i -n
+sed -i 's/use_serial_tcp = False/use_serial_tcp = True/g' /etc/genmon/genmon.conf
+./startgenmon.sh start
+```
+After you run these commands, genmon should start up and you can specify the IP and port of your serial bridge and other configurations.
