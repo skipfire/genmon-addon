@@ -1,5 +1,5 @@
 pecho "Install some common tools"
-sudo apt-get install -y locales-all git i2c-tools
+sudo apt install -y locales-all git i2c-tools
 pip install w1thermsensor
 
 echo "Setup locale"
