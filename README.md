@@ -18,14 +18,14 @@ We do not provide support for running in Docker, however we do have a starter do
 Log into Ubuntu and execute `Setup-Ubuntu.sh` to install GenMon. After you run the script, genmon should start up and you can specify the IP and port of your serial bridge and setup any other security, notifications, or configuration.
 
 ## Files
-* esphome-genmon-rs232-serialbridge.yml - the ESPHome device yaml file for OpenGenSet to be used in serial bridge mode. \
-* Genmon HAT 2.0 Instructions.pdf - instructions linked on the store site for installing the HATs, pHATs, and pre-loaded units. \
-* HatTester.py - the script used to test the generator HATs, pHATs, and toppers on a workbench. \
-* LICENSE.md - the license (currently MIT) for this project. We do ask, but not require, that any improvements to these files make their way back here. \
-* PintSizeFanManager.py - the fan manager service code \
-* PintSizeFanManager.service - the fan manager service definition \
-* README.md - this file \
-* Setup-RaspberryPi.sh - This is the script used to setup for the pre-loaded units, then tests are run, an image created, compressed, and duplicated. \
+* esphome-genmon-rs232-serialbridge.yml - the ESPHome device yaml file for OpenGenSet to be used in serial bridge mode.
+* Genmon HAT 2.0 Instructions.pdf - instructions linked on the store site for installing the HATs, pHATs, and pre-loaded units.
+* HatTester.py - the script used to test the generator HATs, pHATs, and toppers on a workbench.
+* LICENSE.md - the license (currently MIT) for this project. We do ask, but not require, that any improvements to these files make their way back here.
+* PintSizeFanManager.py - the fan manager service code.
+* PintSizeFanManager.service - the fan manager service definition.
+* README.md - this file.
+* Setup-RaspberryPi.sh - This is the script used to setup for the pre-loaded units, then tests are run, an image created, compressed, and duplicated.
 * Setup-Ubuntu.sh - GenMon configured for Serial over TCP on Ubuntu.
 
 ## Contributions welcome
