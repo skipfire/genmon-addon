@@ -39,8 +39,18 @@ dallas:
 sensor:
   - platform: dallas
     index: 0
-    name: "Board Temperature"
+    name: "$display_name Board Temperature"
+  - platform: wifi_signal
+    name: "$display_name WiFi Signal Sensor"
+    update_interval: 60s
 
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "$display_name IP Address"
+  - platform: version
+    name: "$display_name ESPHome Version"
+    
 uart:
   id: uart_bus
   baud_rate: 9600
