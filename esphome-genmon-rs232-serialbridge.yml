@@ -28,9 +28,6 @@ wifi:
 
 captive_portal:
   
-external_components:
-  - source: github://oxan/esphome-stream-server
-
 # Example configuration entry
 dallas:
   - pin: 33
@@ -50,7 +47,14 @@ text_sensor:
       name: "$display_name IP Address"
   - platform: version
     name: "$display_name ESPHome Version"
-    
+
+switch:
+  - platform: restart
+    name: "GenMon Bridge Restart"
+
+external_components:
+  - source: github://oxan/esphome-stream-server
+
 uart:
   id: uart_bus
   baud_rate: 9600
@@ -66,7 +70,3 @@ uart:
 stream_server:
    uart_id: uart_bus
    port: 6638
-
-switch:
-  - platform: restart
-    name: "GenMon Bridge Restart"
