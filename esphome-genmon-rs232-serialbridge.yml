@@ -53,7 +53,7 @@ switch:
     name: "GenMon Bridge Restart"
 
 external_components:
-  - source: github://oxan/esphome-stream-server
+  - source: github://skipfire/esphome-stream-server
 
 uart:
   id: uart_bus
