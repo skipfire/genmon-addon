@@ -48,6 +48,10 @@ text_sensor:
   - platform: version
     name: "$display_name ESPHome Version"
 
+web_server:
+  port: 80
+  include_internal: true
+  
 switch:
   - platform: restart
     name: "GenMon Bridge Restart"
