@@ -58,6 +58,7 @@ switch:
 
 external_components:
   - source: github://skipfire/esphome-stream-server
+    refresh: 0s
 
 uart:
   id: uart_bus
