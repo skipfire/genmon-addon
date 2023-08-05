@@ -1,5 +1,5 @@
 # GenMon-Addon
-## PintSize HAT Fan Manager setup
+## PintSize HAT Fan Manager setup (HATs v2.3 and up)
 The fan manager service is installed on preloaded units that support it. To manually install it elsewhere, log into your Pi with ssh or open a terminal in the OS UI, then run the following commands.  The first two simply download the files, the third command moves the service definition to the appropriate folder, and the last two lines enable and start the fan service.  This first works with v2.2 HATs.
 ```
 wget https://raw.githubusercontent.com/skipfire/genmon-addon/main/PintSizeFanManager.py
