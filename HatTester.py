@@ -24,6 +24,9 @@ GPIO.setup(blueIo,GPIO.OUT)
 GPIO.setup(blueNanoPiIo,GPIO.OUT)
 GPIO.setup(fanIo,GPIO.OUT)
 GPIO.output(fanIo,GPIO.LOW)
+GPIO.output(redIo,GPIO.LOW)
+GPIO.output(greenIo,GPIO.LOW)
+GPIO.output(blueIo,GPIO.LOW)
 
 GPIO.output(redIo,GPIO.HIGH)
 buttonTested = False
@@ -31,6 +34,7 @@ buttonTested = False
 for sensor in W1ThermSensor.get_available_sensors():
     sensorFound = True
 if not sensorFound:
+    print("Sensor not found")
     GPIO.output(blueIo,GPIO.HIGH)
 
 def buttonPressed(channel):
@@ -86,6 +90,7 @@ def GetErrorInfo():
 
 
 GPIO.add_event_detect(buttonIo, GPIO.FALLING, callback=buttonPressed)
+print("Waiting for button...")
 try:
     while buttonTested == False:
         time.sleep(1)
@@ -150,12 +155,7 @@ time.sleep(1.5)
 GPIO.output(greenIo,GPIO.LOW)
 GPIO.output(blueIo,GPIO.LOW)
 GPIO.output(blueNanoPiIo,GPIO.LOW)
+GPIO.output(redIo,GPIO.LOW)
 GPIO.output(fanIo,GPIO.LOW)
-if sensorFound:
-    GPIO.output(redIo,GPIO.LOW)
-    GPIO.cleanup() # clean up GPIO on normal exit
-else:
-    GPIO.output(redIo,GPIO.HIGH)
-    print("Sensor not found")
 
 print("Done")
