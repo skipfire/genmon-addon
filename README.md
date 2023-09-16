@@ -33,19 +33,3 @@ I welcome anyone contributing to the cause.
 
 ## OpenGenSet Open Source Intention
 The current plan is to have OpenGenSet be open source, though with restricted licensing. Some resources, such as circuit digrams, will not be opened until things are complete, and we reserve the right to change our minds on it.  When OpenGenSet is open sourced, it will be placed in its own repository and a link will be placed in this readme.
-
-## RaspiWiFi
-```
-git clone https://github.com/skipfire/RaspiWiFi
-cd RaspiWiFi
-sudo python3 initial_setup.py
-```
-SSID Name - GenMonConfig \
-WPA - n \
-Password (blank) \
-Enable auto reconfig - n \
-Auto reconfig (blank) \
-Port (blank) \
-SSL - n \
-Save config - y \
-Reboot - y
