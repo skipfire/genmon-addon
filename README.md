@@ -43,7 +43,7 @@ sudo python3 initial_setup.py
 SSID Name - GenMonConfig \
 WPA - n \
 Password (blank) \
-Enable auto reconfig - y \
+Enable auto reconfig - n \
 Auto reconfig - 300 \
 Port - 80 \
 SSL - n \
