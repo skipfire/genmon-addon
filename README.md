@@ -44,8 +44,8 @@ SSID Name - GenMonConfig \
 WPA - n \
 Password (blank) \
 Enable auto reconfig - n \
-Auto reconfig - 300 \
-Port - 80 \
+Auto reconfig (blank) \
+Port (blank) \
 SSL - n \
 Save config - y \
 Reboot - y
