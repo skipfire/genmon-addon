@@ -28,6 +28,16 @@ Log into Ubuntu and execute `Setup-Ubuntu.sh` to install GenMon. After you run t
 * Setup-RaspberryPi.sh - This is the script used to setup for the pre-loaded units, then tests are run, an image created, compressed, and duplicated.
 * Setup-Ubuntu.sh - GenMon configured for Serial over TCP on Ubuntu.
 
+## RAM Disk
+* Images created after September 30th, 2023 have RAMDISK setup for /var/log/. This reduces wear and tear on the SD card, however can also result in lost log data in the event it does not shut off cleanly. Logs should be backed to the SD card daily and upon a clean shutdown.
+* Guide for setting it up is at https://ostechnix.com/how-to-write-log-files-in-ram-using-log2ram-in-linux/.
+
+## Hotspot WiFi Configuration
+* Preloaded units can be preloaded with standard networking which requires configuring through the OS GUI or with a wpa_supplicant.conf file. Alternatively there is an image that has RaspiWiFi installed to great a WiFi hotspot to configure the Pi's WiFi.
+* The hotspot will show up with a name similar to `GenMon Config 1.0`.  Connect to it and then browse to http://10.0.0.1 to configure.
+* For HATs v2.0 and higher, the button on the HAT is tied to a WiFi reset script. This will erase existing WiFi configs, reboot the device, and enable the hotspot to reconfigure.  To do this, hold the button for 5 seconds.  It will turn red as soon as you start pressing it, and then if you hold it for the 5 seconds it will turn white.  Release it upon it turning white and the Pi will reboot.
+* The public RaspiWiFi repository has been forked for this project, the only differences are updates to the Readme.txt file and updates to have the reset script work with the button and tri-color LED on the PintSize.Me HATs.
+
 ## Contributions welcome
 I welcome anyone contributing to the cause.
 
