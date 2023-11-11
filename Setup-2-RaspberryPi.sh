@@ -9,7 +9,7 @@ sudo sed -i "s/LOG_DISK_SIZE=100M/LOG_DISK_SIZE=300M/g" /etc/log2ram.conf
 # After reboot, Verify with `sudo df -h`, you should see a log2ram line pointing to /var/log. `sudo mount` can also be used and a line should be seen with `log2ram on /var/log type tmpfs...`
 
 echo "Install PintSizeFanManager"
-sudo mv ~/genmon-addon/PintSizeFanManager.service /etc/systemd/system/
+sudo cp ~/genmon-addon/PintSizeFanManager.service /etc/systemd/system/
 sudo chown genmonpi:genmonpi PintSizeFanManager.py
 sudo chown genmonpi:genmonpi HatTester.sh
 sudo chown genmonpi:genmonpi HatTester.py
