@@ -10,9 +10,9 @@ sudo sed -i "s/LOG_DISK_SIZE=100M/LOG_DISK_SIZE=300M/g" /etc/log2ram.conf
 
 echo "Install PintSizeFanManager"
 sudo cp ~/genmon-addon/PintSizeFanManager.service /etc/systemd/system/
-sudo chmod +x ./HatTester.sh
 sudo systemctl enable PintSizeFanManager.service
 sudo systemctl start PintSizeFanManager.service
+sudo chmod +x ./HatTester.sh
 
 echo "Clone and install GenMon"
 echo 'enable_uart=1' | sudo tee -a /boot/config.txt
