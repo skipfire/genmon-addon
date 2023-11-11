@@ -7,7 +7,8 @@ wget https://raw.githubusercontent.com/skipfire/genmon-addon/main/PintSizeFanMan
 ```
 If you are using a login other than genmonpi, you need to use nano to edit line 7 in PintSizeFanManager.service and change `genmonpi` to your username.
 ```
-sudo mv ~/PintSizeFanManager.service /etc/systemd/system/
+git clone https://github.com/skipfire/genmon-addon
+sudo cp ~/genmon-addon/PintSizeFanManager.service /etc/systemd/system/
 sudo systemctl enable PintSizeFanManager.service
 sudo systemctl start PintSizeFanManager.service
 ```
