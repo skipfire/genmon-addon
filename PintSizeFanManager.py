@@ -27,5 +27,4 @@ while True:
         if fanOn == False:
             fanOn = True
             print("Fan on")
-    print(current_time + " " + str(temp) + " " + str(fanOn))
     time.sleep(15);
