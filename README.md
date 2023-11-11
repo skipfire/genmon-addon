@@ -4,6 +4,9 @@ The fan manager service is installed on preloaded units that support it. To manu
 ```
 wget https://raw.githubusercontent.com/skipfire/genmon-addon/main/PintSizeFanManager.py
 wget https://raw.githubusercontent.com/skipfire/genmon-addon/main/PintSizeFanManager.service
+```
+If you are using a login other than genmonpi, you need to use nano to edit line 7 in PintSizeFanManager.service and change `genmonpi` to your username.
+```
 sudo mv ~/PintSizeFanManager.service /etc/systemd/system/
 sudo systemctl enable PintSizeFanManager.service
 sudo systemctl start PintSizeFanManager.service

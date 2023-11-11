@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import os
 import time
 
-onTemp = 40 #Temperature in celcius
+onTemp = 40 #Temperature in Celsius
 
 fanIo = 9
 fanOn = False
@@ -15,12 +15,17 @@ GPIO.output(fanIo,GPIO.LOW)
 while True:
     cpu_temp = os.popen("vcgencmd measure_temp").readline()
     temp = float(cpu_temp.replace("temp=", "").replace("'C", ""))
-    if fanOn and temp < (onTemp - 1):
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    if temp < (onTemp - 1):
         GPIO.output(fanIo,GPIO.LOW)
-        fanOn = False
-        print("Fan off")
-    elif fanOn == False and temp >= onTemp:
+        if fanOn:
+            fanOn = False
+            print("Fan off")
+    elif temp >= onTemp:
         GPIO.output(fanIo,GPIO.HIGH)
-        fanOn = True
-        print("Fan on")
+        if fanOn == False:
+            fanOn = True
+            print("Fan on")
+    print(current_time + " " + str(temp) + " " + str(fanOn))
     time.sleep(15);
