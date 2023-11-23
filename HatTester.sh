@@ -1,3 +1,3 @@
 ~/genmon/startgenmon.sh stop
-python /boot/HatTester.py
+python HatTester.py
 ~/genmon/startgenmon.sh start
