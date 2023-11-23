@@ -12,7 +12,7 @@ echo "Install PintSizeFanManager"
 sudo cp ~/genmon-addon/PintSizeFanManager.service /etc/systemd/system/
 sudo systemctl enable PintSizeFanManager.service
 sudo systemctl start PintSizeFanManager.service
-sudo chmod +x ./HatTester.sh
+sudo chmod +x ./genmon-addon/HatTester.sh
 
 echo "Clone and install GenMon"
 echo 'enable_uart=1' | sudo tee -a /boot/config.txt
