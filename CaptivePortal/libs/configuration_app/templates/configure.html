@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div id="mainContent">
+    <h1>System Setup</h1>
+    <br/><br/>
+
+    <form action="{{ url_for('save_config') }}" method=post>
+      <ul>
+        <li><label for="dpdTimeZone">Select your timezone</label></li>
+
+        <li class="saveCredentialsOutput">
+          <select id="dpdTimeZone" name="dpdTimeZone", class="wifiNetworkInputs">
+            <option value='America/New_York'>America/New_York</option>
+            <option value='America/Chicago'>America/Chicago</option>
+            <option value='America/Denver'>America/Denver</option>
+            <option value='America/Phoenix'>America/Phoenix</option>
+            <option value='America/Los_Angeles'>America/Los_Angeles</option>
+            <option value='America/Anchorage'>America/Anchorage</option>
+            <option value='America/Adak'>America/Adak</option>
+            <option value='Pacific/Honolulu'>Pacific/Honolulu</option>
+            <option value='America/St_Johns'>America/St_Johns</option>
+            <option value='America/Halifax'>America/Halifax</option>
+            <option value='America/Toronto'>America/Toronto</option>
+            <option value='America/Regina'>America/Regina</option>
+            <option value='America/Winnipeg'>America/Winnipeg</option>
+            <option value='America/Edmonton'>America/Edmonton</option>
+            <option value='America/Whitehorse'>America/Whitehorse</option>
+            <option value='America/Vancouver'>America/Vancouver</option>
+          </select>
+        </li>
+
+        <input type="submit", class="wifiConnectButton">
+      </ul>
+    </form>
+  </div>
+{% endblock %}

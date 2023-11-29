@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 /home/genmonpi/genmon-addon/CaptivePortal/libs/reset_device/gpio_reset.py
