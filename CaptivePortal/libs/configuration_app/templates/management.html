@@ -7,7 +7,7 @@
 
     <form  method=post>
       <ul>
-        <li><input type="submit" class="wifiConnectButton" value="Update" formaction="{{ url_for('update') }}"></li>
+        <li><input type="submit" class="wifiConnectButton" value="Update" formaction="{{ url_for('update') }}" style="display:none;"></li>
         <li><input type="submit" class="wifiConnectButton" value="Reboot" formaction="{{ url_for('reboot') }}"></li>
       </ul>
       Reboot to apply updates and/or shut down the configuratin portal.
