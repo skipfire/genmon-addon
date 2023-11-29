@@ -5,7 +5,7 @@ if os.getuid():
     sys.exit('You need root access to install!')
 
 print("###################################")
-print("##### Captive Portal Intial Setup  #####")
+print("##### Captive Portal Initial Setup  #####")
 print("###################################")
 print()
 print()
