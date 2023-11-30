@@ -39,9 +39,9 @@ Log into Ubuntu and execute `Setup-Ubuntu.sh` to install GenMon. After you run t
 
 ## Hotspot WiFi Configuration
 * Preloaded units can be preloaded with standard networking which requires configuring through the OS GUI or with a wpa_supplicant.conf file. Alternatively there is an image that has RaspiWiFi installed to great a WiFi hotspot to configure the Pi's WiFi.
-* The hotspot will show up with a name similar to `GenMon Config 1.0`.  Connect to it and then browse to http://10.0.0.1 to configure.
-* For HATs v2.0 and higher, the button on the HAT is tied to a WiFi reset script. This will erase existing WiFi configs, reboot the device, and enable the hotspot to reconfigure.  To do this, hold the button for 5 seconds.  It will turn red as soon as you start pressing it, and then if you hold it for the 5 seconds it will turn white.  Release it upon it turning white and the Pi will reboot.
-* The public RaspiWiFi repository has been forked for this project, the only differences are updates to the Readme.txt file and updates to have the reset script work with the button and tri-color LED on the PintSize.Me HATs.
+* To activate the hotspot, press and hold the button on the HAT/pHAT for 5 seconds.  It will first turn RED as a warning, then it will turn WHITE when it is activating the hotspot.
+* The hotspot will show up with a name of `config` and the key is `genmon00`.  Connect to it and then browse to http://genmon/ or http://10.42.0.1/ to configure.  It may take a moment for your device to fully connect to the endpoint. If the page is not found give it up to 2 minutes. Mobile devices may automatically drop the connection as it will not provide internet access.
+* After you are done configuring your device, it is recommended that you reboot the device.
 
 ## Contributions welcome
 I welcome anyone contributing to the cause.
