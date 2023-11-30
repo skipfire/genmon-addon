@@ -14,6 +14,9 @@ sudo systemctl start PintSizeFanManager.service
 sudo chmod +x ./genmon-addon/HatTester.sh
 
 echo "Install CpativePortal"
+sudo apt install python3-flask -y
+sudo python ~/genmon-addon/CaptivePortal/setup.py
+sudo cp ~/genmon-addon/CaptivePortal/libs/reset_device/static_files/hosts.conf /etc/NetworkManager/dnsmasq-shared.d/
 sudo cp ~/genmon-addon/CaptivePortal.service /etc/systemd/system/
 sudo systemctl enable CaptivePortal.service
 sudo systemctl start CaptivePortal.service
