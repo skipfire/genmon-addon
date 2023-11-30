@@ -1,5 +1,4 @@
 echo "Install Log2ram"
-
 echo "deb [signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bookworm main" | sudo tee /etc/apt/sources.list.d/azlux.list
 sudo wget -O /usr/share/keyrings/azlux-archive-keyring.gpg  https://azlux.fr/repo.gpg
 sudo apt update -y
@@ -13,6 +12,11 @@ sudo cp ~/genmon-addon/PintSizeFanManager.service /etc/systemd/system/
 sudo systemctl enable PintSizeFanManager.service
 sudo systemctl start PintSizeFanManager.service
 sudo chmod +x ./genmon-addon/HatTester.sh
+
+echo "Install CpativePortal"
+sudo cp ~/genmon-addon/CaptivePortal.service /etc/systemd/system/
+sudo systemctl enable CaptivePortal.service
+sudo systemctl start CaptivePortal.service
 
 echo "Clone and install GenMon"
 echo 'enable_uart=1' | sudo tee -a /boot/config.txt
