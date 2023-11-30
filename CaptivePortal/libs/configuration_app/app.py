@@ -57,15 +57,12 @@ def save_credentials():
 
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
-    def updatethread():
-        subprocess.run(['git', 'pull'])
-        time.sleep(5)
-        subprocess.run(['chown', 'genmonpi:genmonpi', '.git/*'])
-        subprocess.run(['chown', 'genmonpi:genmonpi', '.git/objects*'])
-
-    t = Thread(target=updatethread)
-    t.start()
-    return render_template('update.html')
+    
+    ps = subprocess.Popen("git pull",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    output = ps.communicate()[0]
+    subprocess.run(['chown', 'genmonpi:genmonpi', '.git/*'])
+    subprocess.run(['chown', 'genmonpi:genmonpi', '.git/objects*'])
+    return render_template('update.html', result = output)
 
 @app.route('/reboot', methods = ['GET', 'POST'])
 def reboot():
