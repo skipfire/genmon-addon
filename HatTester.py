@@ -32,9 +32,10 @@ GPIO.output(redIo,GPIO.HIGH)
 buttonTested = False
 
 for sensor in W1ThermSensor.get_available_sensors():
+    print("Temperature sensor found")
     sensorFound = True
 if not sensorFound:
-    print("Sensor not found")
+    print("Temperature sensor not found")
     GPIO.output(blueIo,GPIO.HIGH)
 
 def buttonPressed(channel):
