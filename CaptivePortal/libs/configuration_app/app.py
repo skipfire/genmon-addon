@@ -57,12 +57,18 @@ def save_credentials():
     return render_template('save_credentials.html', ssid = ssid)
 
 @app.route('/update', methods = ['GET', 'POST'])
-def update():
-    
+def update():    
     ps = subprocess.Popen("git pull",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = ps.communicate()[0]
     subprocess.run(['chown', 'genmonpi:genmonpi', '.git/*'])
     subprocess.run(['chown', 'genmonpi:genmonpi', '.git/objects*'])
+    def restartportal():
+        time.sleep(2)
+        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
+        
+    t = Thread(target=restartportal)
+    t.start()
+
     return render_template('update.html', result = output)
 
 @app.route('/reboot', methods = ['GET', 'POST'])
