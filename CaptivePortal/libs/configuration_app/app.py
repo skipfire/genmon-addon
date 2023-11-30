@@ -63,8 +63,8 @@ def update():
     print("begin update output")
     print(output)
     print("end update output")
-    subprocess.run(['chown', 'genmonpi:genmonpi', '.git/*'])
-    subprocess.run(['chown', 'genmonpi:genmonpi', '.git/objects*'])
+    subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/*'])
+    subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/objects*'])
     def restartportal():
         time.sleep(2)
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
