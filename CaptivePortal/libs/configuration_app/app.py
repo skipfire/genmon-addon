@@ -58,17 +58,13 @@ def save_credentials():
 
 @app.route('/update', methods = ['GET', 'POST'])
 def update():    
-    ps = subprocess.Popen("git pull",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git pull",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = ps.communicate()[0]
-    print("begin update output")
-    print(output)
-    print("end update output")
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/*'])
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/objects*'])
     def restartportal():
         time.sleep(2)
-        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
-        
+        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])        
     t = Thread(target=restartportal)
     t.start()
 
