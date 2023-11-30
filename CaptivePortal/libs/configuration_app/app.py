@@ -60,6 +60,9 @@ def save_credentials():
 def update():    
     ps = subprocess.Popen("git pull",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = ps.communicate()[0]
+    print("begin update output")
+    print(output)
+    print("end update output")
     subprocess.run(['chown', 'genmonpi:genmonpi', '.git/*'])
     subprocess.run(['chown', 'genmonpi:genmonpi', '.git/objects*'])
     def restartportal():
