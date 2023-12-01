@@ -27,34 +27,24 @@ def index():
 def manual_ssid_entry():
     return render_template('manual_ssid_entry.html')
 
-@app.route('/management')
-def management():
-    return render_template('management.html')
-
-@app.route('/configure')
-def configure():
-    return render_template('configure.html')
-
 @app.route('/save_config', methods = ['GET', 'POST'])
 def save_config():
-    timezone = request.form['dpdTimeZone']
+    timezone = request.form['timezone']
     subprocess.run(['timedatectl', 'set-timezone', timezone])
-    return render_template('save_config.html', timezone = timezone)
+    return timezone
 
 @app.route('/save_credentials', methods = ['GET', 'POST'])
 def save_credentials():
     ssid = request.form['ssid']
-    wifi_key = request.form['wifi_key']
-
+    wifi_key = request.form['password']
     # Call set_ap_client_mode() in a thread otherwise the network change will prevent the response from getting to the browser
     def sleep_and_start_ap():
         time.sleep(2)
         set_ap_client_mode(ssid, wifi_key)
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
-        
     t = Thread(target=sleep_and_start_ap)
     t.start()
-    return render_template('save_credentials.html', ssid = ssid)
+    return ssid
 
 @app.route('/update', methods = ['GET', 'POST'])
 def update():    
@@ -67,8 +57,7 @@ def update():
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])        
     t = Thread(target=restartportal)
     t.start()
-
-    return render_template('update.html', result = output)
+    return output
 
 @app.route('/reboot', methods = ['GET', 'POST'])
 def reboot():
@@ -80,19 +69,17 @@ def reboot():
     GPIO.output(red, GPIO.LOW)
     t = Thread(target=rebootthread)
     t.start()
-    return render_template('reboot.html')
+    return "Rebooting"
 
 def scan_wifi_networks():
     iwlist_raw = subprocess.Popen(['iwlist', 'scan'], stdout=subprocess.PIPE)
     ap_list, err = iwlist_raw.communicate()
     ap_array = []
-
     for line in ap_list.decode('utf-8').rsplit('\n'):
         if 'ESSID' in line:
             ap_ssid = line[27:-1]
             if ap_ssid != '' and not ap_ssid.startswith("\x00"):
                 ap_array.append(ap_ssid)
-
     return ap_array
 
 def set_ap_client_mode(ssid, wifi_key):
