@@ -41,7 +41,6 @@ def save_credentials():
     def sleep_and_start_ap():
         time.sleep(2)
         set_ap_client_mode(ssid, wifi_key)
-        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
     t = Thread(target=sleep_and_start_ap)
     t.start()
     return ssid
