@@ -20,7 +20,7 @@
     <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
     <script>
         function SaveTimeZone() {
-            $.post("{{ url_for('save_config') }}", { timezone: dpdTimeZone.value }, function(data, status) { alert("Save timezone " + dpdTVShow.value + "\nStatus: " + status); });
+            $.post("{{ url_for('save_config') }}", { timezone: dpdTimeZone.value }, function(data, status) { alert("Save timezone " + dpdTimeZone.value + "\nStatus: " + status); });
         }
 
         function SaveWiFi() {
