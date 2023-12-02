@@ -5,7 +5,23 @@ import time
 def ActivateHotspot():
 	subprocess.run(['systemctl', 'stop', 'dnsmasq'])
 	subprocess.run(['nmcli', 'd', 'wifi', 'hotspot', 'ifname', 'wlan0', 'ssid', 'config', 'password', 'genmon00'])
+    ActivatePortal()
+
+def ActivatePortal():
 	subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/app.py'])
+
+def buttonPressed(channel):
+    global buttonTested
+    if buttonCounter < 2:
+        buttonCounter = buttonCounter + 1
+        print("button pressed")
+    else:
+        buttonCounter = 0
+        GPIO.output(green, GPIO.HIGH)
+        GPIO.output(blue, GPIO.LOW)
+        GPIO.output(red, GPIO.LOW)
+        print("activating portal")
+        ActivatePortal()
 
 btn = 10
 green = 23
@@ -24,20 +40,6 @@ counter = 0
 buttonCounter = 0
 buttonLastPress = 0
 GPIO.add_event_detect(btn, GPIO.FALLING, callback=buttonPressed)
-
-def buttonPressed(channel):
-    global buttonTested
-    if buttonCounter < 2:
-        buttonCounter = buttonCounter + 1
-        print("button pressed")
-    else:
-        buttonCounter = 0
-        GPIO.output(green, GPIO.HIGH)
-        GPIO.output(blue, GPIO.LOW)
-        GPIO.output(red, GPIO.LOW)
-        print("activating portal")
-        subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/app.py'])
-
 
 # This is the main logic loop waiting for a button to be pressed on GPIO 10 for 5 seconds.
 # If that happens the device will reset to its AP Host mode allowing for reconfiguration on a new network.
