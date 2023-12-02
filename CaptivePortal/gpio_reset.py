@@ -29,7 +29,7 @@ def buttonPressed(channel):
     if buttonCounter < 2:
         buttonCounter = buttonCounter + 1
         print("button pressed")
-    else
+    else:
         buttonCounter = 0
         GPIO.output(green, GPIO.HIGH)
         GPIO.output(blue, GPIO.LOW)
