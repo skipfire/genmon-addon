@@ -20,16 +20,11 @@ sudo systemctl enable CaptivePortal.service
 sudo systemctl start CaptivePortal.service
 
 echo "Clone and install GenMon"
-echo 'enable_uart=1' | sudo tee -a /boot/config.txt
+# echo 'enable_uart=1' | sudo tee -a /boot/config.txt
 
 cd ~/
 git clone https://github.com/jgyates/genmon.git
 cd ~/genmon
-bash ./genmonmaint.sh -i
-# Install answers:
-# Enter to download packages
-# y and Enter to copy config files
-# y and Enter to setup serial port
-# y and Enter to start genmon on boot
+bash ./genmonmaint.sh -i -n
 
 sudo reboot
