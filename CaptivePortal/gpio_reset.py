@@ -25,8 +25,10 @@ def buttonPressed(channel):
         GPIO.output(red, GPIO.LOW)
         print("activating portal")
         portalUp = True
+        print("portal up")
         ActivatePortal()
         portalUp = False
+        print("portal down")
 
 btn = 10
 green = 23
