@@ -44,7 +44,7 @@ def save_credentials():
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git fetch origin",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-    output = output + ps.communicate()[0]
+    output = ps.communicate()[0]
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git reset --hard origin/main",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = output + ps.communicate()[0]
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/*'])
