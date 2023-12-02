@@ -29,7 +29,7 @@ cd ~/genmon
 bash ./genmonmaint.sh -i -n
 
 read -p "A reboot is required, do that now? [y/n]" -n 1 -r
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo reboot
 fi
