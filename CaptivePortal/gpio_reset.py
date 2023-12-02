@@ -11,7 +11,7 @@ def ActivatePortal():
     subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/app.py'])
 
 def buttonPressed(channel):
-    global buttonTested
+    global buttonCounter
     if buttonCounter < 2:
         buttonCounter = buttonCounter + 1
         print("button pressed")
