@@ -20,8 +20,7 @@ sudo systemctl enable CaptivePortal.service
 sudo systemctl start CaptivePortal.service
 
 echo "Clone and install GenMon"
-# echo 'enable_uart=1' | sudo tee -a /boot/config.txt
-
+echo 'dtoverlay=w1-gpio' | sudo tee -a /boot/config.txt
 cd ~/
 git clone https://github.com/jgyates/genmon.git
 cd ~/genmon
