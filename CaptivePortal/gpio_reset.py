@@ -3,12 +3,12 @@ import subprocess
 import time
 
 def ActivateHotspot():
-	subprocess.run(['systemctl', 'stop', 'dnsmasq'])
-	subprocess.run(['nmcli', 'd', 'wifi', 'hotspot', 'ifname', 'wlan0', 'ssid', 'config', 'password', 'genmon00'])
+    subprocess.run(['systemctl', 'stop', 'dnsmasq'])
+    subprocess.run(['nmcli', 'd', 'wifi', 'hotspot', 'ifname', 'wlan0', 'ssid', 'config', 'password', 'genmon00'])
     ActivatePortal()
 
 def ActivatePortal():
-	subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/app.py'])
+    subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/app.py'])
 
 def buttonPressed(channel):
     global buttonTested
