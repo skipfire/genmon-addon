@@ -62,7 +62,7 @@ def stop_portal():
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
     t = Thread(target=stop_portal_thread)
     t.start()
-    return output
+    return "Shutting down portal"
 
 @app.route('/reboot', methods = ['GET', 'POST'])
 def reboot():
