@@ -17,18 +17,14 @@ def buttonPressed(channel):
     if buttonCounter < 2:
         buttonLastPress = time.time()
         buttonCounter = buttonCounter + 1
-        print("button pressed")
     else:
         buttonCounter = 0
         GPIO.output(green, GPIO.HIGH)
         GPIO.output(blue, GPIO.LOW)
         GPIO.output(red, GPIO.LOW)
-        print("activating portal")
         portalUp = True
-        print("portal up")
         ActivatePortal()
         portalUp = False
-        print("portal down")
 
 btn = 10
 green = 23
@@ -71,7 +67,4 @@ while True:
         counter = 0
         if buttonCounter > 0 and buttonLastPress + 1 < time.time():
             buttonCounter = 0
-            print(buttonLastPress)
-            print(time.time())
-            print("reset button pressed due to time")
     time.sleep(1) #sleep when button is not pushed
