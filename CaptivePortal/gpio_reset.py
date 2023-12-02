@@ -62,7 +62,7 @@ while True:
     GPIO.output(blue, GPIO.LOW)
     GPIO.output(red, GPIO.LOW)
     counter = 0
-    if buttonCounter > 0 and buttonLastPress + 2 < time.time():
+    if buttonCounter > 0 and buttonLastPress + 1 < time.time():
         buttonCounter = 0
         print(buttonLastPress)
         print(time.time())
