@@ -22,16 +22,17 @@ We do not provide support for running in Docker, however we do have a starter do
 Log into Ubuntu and execute `Setup-Ubuntu.sh` to install GenMon. After you run the script, genmon should start up and you can specify the IP and port of your serial bridge and setup any other security, notifications, or configuration.
 
 ## Files
-* esphome-genmon-rs232-serialbridge.yml - the ESPHome device yaml file for OpenGenSet to be used in serial bridge mode.
+* CaptivePortal - all the files for the CaptivePortal service supporting configuration of your Pi.
+* docker - files supporting setting up a docker image for GenMon, primarily used with a serial-TCP bridge. This is based on Debian.
+* ESP32 - contains the ESPHome device yaml file for OpenGenSet to be used in serial bridge mode.
+* FanManager - the files for the fan manager.
 * Genmon HAT 2.0 Instructions.pdf - instructions linked on the store site for installing the v2.0+ HATs, pHATs, and pre-loaded units.
-* HatTester.py - the script used to test the generator HATs, pHATs, and toppers on a workbench.
+* HatTester - the files used to test the generator HATs, pHATs, and toppers on a workbench.
 * LICENSE.md - the license (currently MIT) for this project. We do ask, but not require, that any improvements to these files make their way back here.
-* PintSizeFanManager.py - the fan manager service code.
-* PintSizeFanManager.service - the fan manager service definition.
 * README.md - this file.
-* Setup-1-Common.sh - This script calls apt update and upgrade, installs several packages that will be needed, and sets locale to the US.
-* Setup-2-RaspberryPi.sh - This script is used to setup the pre-loaded units, then tests are run, an image created, compressed, and duplicated.
-* Setup-2-VirtualizedForSerial.sh - This script can be used along with the Common to setup GenMon for Serial over TCP on Ubuntu.
+* Setup/Setup-1-Common.sh - This script calls apt update and upgrade, installs several packages that will be needed, and sets locale to the US.
+* Setup/Setup-2-RaspberryPi.sh - This script is used to setup the pre-loaded units, then tests are run, an image created, compressed, and duplicated.
+* Setup/Setup-2-VirtualizedForSerial.sh - This script can be used along with the Common to setup GenMon for Serial over TCP on Ubuntu.
 
 ## RAM Disk
 * Images created after September 30th, 2023 have RAMDISK setup for /var/log/. This reduces wear and tear on the SD card, however can also result in lost log data in the event it does not shut off cleanly. Logs should be backed to the SD card daily and upon a clean shutdown.

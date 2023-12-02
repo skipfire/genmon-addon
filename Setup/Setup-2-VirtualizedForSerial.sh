@@ -1,6 +1,7 @@
 echo "Clone and install GenMon"
+cd ~/
 git clone https://github.com/jgyates/genmon.git
-cd genmon
+cd ~/genmon
 ./genmonmaint.sh -i -n
 # Enter to download packages
 # y and Enter to copy config files
