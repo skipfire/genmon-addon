@@ -13,6 +13,7 @@ def ActivatePortal():
 def buttonPressed(channel):
     global buttonCounter
     global buttonLastPress
+    global portalUp
     if buttonCounter < 2:
         buttonLastPress = time.time()
         buttonCounter = buttonCounter + 1
@@ -23,7 +24,9 @@ def buttonPressed(channel):
         GPIO.output(blue, GPIO.LOW)
         GPIO.output(red, GPIO.LOW)
         print("activating portal")
+        portalUp = True
         ActivatePortal()
+        portalUp = False
 
 btn = 10
 green = 23
@@ -41,11 +44,14 @@ GPIO.output(red, GPIO.LOW)
 counter = 0
 buttonCounter = 0
 buttonLastPress = time.time()
+portalUp = False
 GPIO.add_event_detect(btn, GPIO.FALLING, callback=buttonPressed)
 
 # This is the main logic loop waiting for a button to be pressed on GPIO 10 for 5 seconds.
 # If that happens the device will reset to its AP Host mode allowing for reconfiguration on a new network.
 while True:
+    if portalUp:
+        continue
     while GPIO.input(btn) == 0:
         counter = counter + 1
         GPIO.output(red, GPIO.HIGH)
