@@ -57,8 +57,8 @@ while True:
     GPIO.output(blue, GPIO.LOW)
     GPIO.output(red, GPIO.LOW)
     counter = 0
-    if buttonPressed > 0:
+    if buttonCounter > 0:
         if buttonLastPress + 1 < time.time():
-            buttonPressed = 0
+            buttonCounter = 0
             print("reset button pressed due to time")
     time.sleep(1) #sleep when button is not pushed
