@@ -38,7 +38,7 @@ GPIO.output(red, GPIO.LOW)
 
 counter = 0
 buttonCounter = 0
-buttonLastPress = 0
+buttonLastPress = time.time()
 GPIO.add_event_detect(btn, GPIO.FALLING, callback=buttonPressed)
 
 # This is the main logic loop waiting for a button to be pressed on GPIO 10 for 5 seconds.
