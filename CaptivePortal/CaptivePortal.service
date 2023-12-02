@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python /home/genmonpi/genmon-addon/CaptivePortal/libs/reset_device/gpio_reset.py
+ExecStart=/usr/bin/python /home/genmonpi/genmon-addon/CaptivePortal/gpio_reset.py
 
 [Install]
 WantedBy=multi-user.target

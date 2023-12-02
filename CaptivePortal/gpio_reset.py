@@ -5,7 +5,7 @@ import time
 def reset_to_host_mode():
 	subprocess.run(['systemctl', 'stop', 'dnsmasq'])
 	subprocess.run(['nmcli', 'd', 'wifi', 'hotspot', 'ifname', 'wlan0', 'ssid', 'config', 'password', 'genmon00'])
-	subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/libs/configuration_app/app.py'])
+	subprocess.run(['python', '/home/genmonpi/genmon-addon/CaptivePortal/app.py'])
     
 btn = 10
 green = 23
