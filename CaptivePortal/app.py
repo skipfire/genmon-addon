@@ -51,7 +51,7 @@ def update():
         time.sleep(2)
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
         subprocess.run(['systemctl', 'restart', 'PintSizeFanManager'])
-    t = Thread(target=restartportal)
+    t = Thread(target=update_thread)
     t.start()
     return output
 
@@ -60,7 +60,7 @@ def stop_portal():
     def stop_portal_thread():
         time.sleep(2)
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
-    t = Thread(target=restartportal)
+    t = Thread(target=stop_portal_thread)
     t.start()
     return output
 
