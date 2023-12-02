@@ -33,23 +33,33 @@ def save_config():
 def save_credentials():
     ssid = request.form['ssid']
     wifi_key = request.form['password']
-    # Call set_ap_client_mode() in a thread otherwise the network change will prevent the response from getting to the browser
-    def sleep_and_start_ap():
+    # Call ShutdownHotspot() in a thread otherwise the network change will prevent the response from getting to the browser
+    def save_credentials_thread():
         time.sleep(2)
-        set_ap_client_mode(ssid, wifi_key)
-    t = Thread(target=sleep_and_start_ap)
+        ShutdownHotspot(ssid, wifi_key)
+    t = Thread(target=save_credentials_thread)
     t.start()
     return ssid
 
 @app.route('/update', methods = ['GET', 'POST'])
-def update():    
+def update():
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git pull",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = ps.communicate()[0]
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/*'])
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/objects*'])
-    def restartportal():
+    def update_thread():
         time.sleep(2)
-        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])        
+        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
+        subprocess.run(['systemctl', 'restart', 'PintSizeFanManager'])
+    t = Thread(target=restartportal)
+    t.start()
+    return output
+
+@app.route('/stop_portal', methods = ['GET', 'POST'])
+def stop_portal():
+    def stop_portal_thread():
+        time.sleep(2)
+        subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
     t = Thread(target=restartportal)
     t.start()
     return output
@@ -77,7 +87,7 @@ def scan_wifi_networks():
                 ap_array.append(ap_ssid)
     return ap_array
 
-def set_ap_client_mode(ssid, wifi_key):
+def ShutdownHotspot(ssid, wifi_key):
     GPIO.output(green, GPIO.LOW)
     GPIO.output(blue, GPIO.LOW)
     GPIO.output(red, GPIO.LOW)

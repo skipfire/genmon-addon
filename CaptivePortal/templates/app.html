@@ -31,6 +31,10 @@
           $.post("{{ url_for('update') }}", function(data, status) { alert("Update result. Captive Portal will be shut down.\n" + data + "\nStatus: " + status); });
         }
 
+        function StopPortal() {
+          $.post("{{ url_for('stop_portal') }}", function(data, status) { alert("Captive Portal will be shut down.\n" + data + "\nStatus: " + status); });
+        }
+
         function Reboot() {
           $.post("{{ url_for('reboot') }}", function(data, status) { alert("Rebooting. Captive Portal will be shut down.\nStatus: " + status); });
         }
@@ -75,11 +79,13 @@
           </td>
         </tr>
         <tr><td>WiFi Password:</td><td><input type="password" id="txtWiFiPassword"></td></tr>
-        <tr><td colspan="2"><input type="button" value="Save WiFi" class="button" onclick="SaveWiFi();" formaction="{{ url_for('save_credentials') }}"></td></tr>
+        <tr><td colspan="2"><input type="button" value="Save WiFi" class="button" onclick="SaveWiFi();"></td></tr>
         <tr><td colspan="2">&nbsp;</td></tr>
-        <tr><td colspan="2"><input type="button" class="button" value="Update" onclick="Update();" formaction="{{ url_for('update') }}"></td></tr>
+        <tr><td colspan="2"><input type="button" class="button" value="Update" onclick="Update();"></td></tr>
         <tr><td colspan="2">&nbsp;</td></tr>
-        <tr><td colspan="2"><input type="button" class="button" value="Reboot" onclick="Reboot();" formaction="{{ url_for('reboot') }}"></td></tr>
+        <tr><td colspan="2"><input type="button" class="button" value="Update" onclick="StopPortal();"></td></tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr><td colspan="2"><input type="button" class="button" value="Reboot" onclick="Reboot();"></td></tr>
         <tr><td colspan="2">&nbsp;</td></tr>
       </table>
     </form>
