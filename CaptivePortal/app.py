@@ -23,10 +23,6 @@ def index():
     wifi_ap_array = scan_wifi_networks()
     return render_template('app.html', wifi_ap_array = wifi_ap_array)
 
-@app.route('/manual_ssid_entry')
-def manual_ssid_entry():
-    return render_template('manual_ssid_entry.html')
-
 @app.route('/save_config', methods = ['GET', 'POST'])
 def save_config():
     timezone = request.form['timezone']
@@ -77,7 +73,7 @@ def scan_wifi_networks():
     for line in ap_list.decode('utf-8').rsplit('\n'):
         if 'ESSID' in line:
             ap_ssid = line[27:-1]
-            if ap_ssid != '' and not ap_ssid.startswith("\x00"):
+            if ap_ssid != '':
                 ap_array.append(ap_ssid)
     return ap_array
 
