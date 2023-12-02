@@ -28,4 +28,8 @@ git clone https://github.com/jgyates/genmon.git
 cd ~/genmon
 bash ./genmonmaint.sh -i -n
 
-sudo reboot
+read -p "A reboot is required, do that now? [y/n]" -n 1 -r
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    sudo reboot
+fi
