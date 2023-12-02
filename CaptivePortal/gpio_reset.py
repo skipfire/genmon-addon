@@ -23,7 +23,7 @@ GPIO.output(red, GPIO.LOW)
 counter = 0
 buttonCounter = 0
 buttonLastPress = 0
-GPIO.add_event_detect(buttonIo, GPIO.FALLING, callback=buttonPressed)
+GPIO.add_event_detect(btn, GPIO.FALLING, callback=buttonPressed)
 
 def buttonPressed(channel):
     global buttonTested
