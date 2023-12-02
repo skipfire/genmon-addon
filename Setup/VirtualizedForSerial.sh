@@ -1,3 +1,5 @@
+/bin/bash ./Common.sh
+
 echo "Setup locale"
 sudo sed -i "s/en_GB/en_US/g" /etc/default/locale
 
