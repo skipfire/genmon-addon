@@ -63,5 +63,7 @@ while True:
     counter = 0
     if buttonCounter > 0 and buttonLastPress + 2 < time.time():
         buttonCounter = 0
+        print(buttonLastPress)
+        print(time.time())
         print("reset button pressed due to time")
     time.sleep(1) #sleep when button is not pushed
