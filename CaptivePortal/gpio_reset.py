@@ -13,8 +13,8 @@ def ActivatePortal():
 def buttonPressed(channel):
     global buttonCounter
     if buttonCounter < 2:
-        buttonCounter = buttonCounter + 1
         buttonLastPress = time.time()
+        buttonCounter = buttonCounter + 1
         print("button pressed")
     else:
         buttonCounter = 0
