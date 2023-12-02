@@ -5,4 +5,5 @@ Enable SSH checked, Use password authentication \
 Set username and password checked \
 Username: genmonpi \
 Password: raspberry \
+Timezone: America/New_York \
 Keyboard layout: us
