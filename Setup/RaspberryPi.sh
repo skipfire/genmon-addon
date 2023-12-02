@@ -20,6 +20,8 @@ sudo cp ~/genmon-addon/CaptivePortal/hosts.conf /etc/NetworkManager/dnsmasq-shar
 sudo cp ~/genmon-addon/CaptivePortal/CaptivePortal.service /etc/systemd/system/
 sudo systemctl enable CaptivePortal.service
 sudo systemctl start CaptivePortal.service
+cd ~/genmon-addon/
+git config --global --add safe.directory '*'
 
 echo "Clone and install GenMon"
 echo 'dtoverlay=w1-gpio' | sudo tee -a /boot/firmware/config.txt
