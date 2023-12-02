@@ -7,3 +7,5 @@ Username: genmonpi \
 Password: raspberry \
 Timezone: America/New_York \
 Keyboard layout: us
+
+After booting, set WiFi country code.
