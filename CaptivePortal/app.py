@@ -43,10 +43,6 @@ def save_credentials():
 
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
-    
-    
-    
-    
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git config --global --add safe.directory '*'",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = ps.communicate()[0]
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git fetch origin",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
