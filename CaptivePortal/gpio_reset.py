@@ -54,7 +54,7 @@ GPIO.add_event_detect(btn, GPIO.FALLING, callback=buttonPressed)
 while True:
     if portalUp:
         continue
-    while GPIO.input(btn) == 0:
+    if GPIO.input(btn) == 0:
         counter = counter + 1
         GPIO.output(red, GPIO.HIGH)
 
@@ -64,15 +64,14 @@ while True:
             GPIO.output(red, GPIO.HIGH)
             counter = 0
             ActivateHotspot()
-        time.sleep(1) #sleep when button is pushed
-
-    GPIO.output(green, GPIO.LOW)
-    GPIO.output(blue, GPIO.LOW)
-    GPIO.output(red, GPIO.LOW)
-    counter = 0
-    if buttonCounter > 0 and buttonLastPress + 1 < time.time():
-        buttonCounter = 0
-        print(buttonLastPress)
-        print(time.time())
-        print("reset button pressed due to time")
+    else:
+        GPIO.output(green, GPIO.LOW)
+        GPIO.output(blue, GPIO.LOW)
+        GPIO.output(red, GPIO.LOW)
+        counter = 0
+        if buttonCounter > 0 and buttonLastPress + 1 < time.time():
+            buttonCounter = 0
+            print(buttonLastPress)
+            print(time.time())
+            print("reset button pressed due to time")
     time.sleep(1) #sleep when button is not pushed
