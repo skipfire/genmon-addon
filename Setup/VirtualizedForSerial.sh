@@ -1,8 +1,5 @@
 /bin/bash ./Common.sh
 
-echo "Setup locale"
-sudo sed -i "s/en_GB/en_US/g" /etc/default/locale
-
 echo "Clone and install GenMon"
 cd ~/
 git clone https://github.com/jgyates/genmon.git
