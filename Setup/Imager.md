@@ -11,5 +11,6 @@ In the Raspberry Pi imager:
 * Keyboard layout: us
 
 After booting: 
-* set WiFi country code
-* set boot mode to GUI without automatic login
+* Set WiFi country code
+* Set boot mode to GUI without automatic login
+* Change the password!
