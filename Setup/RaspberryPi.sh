@@ -10,16 +10,12 @@ sudo sed -i "s/LOG_DISK_SIZE=100M/LOG_DISK_SIZE=300M/g" /etc/log2ram.conf
 # After reboot, Verify with `sudo df -h`, you should see a log2ram line pointing to /var/log. `sudo mount` can also be used and a line should be seen with `log2ram on /var/log type tmpfs...`
 
 echo "Install PintSizeFanManager"
-sudo cp ~/genmon-addon/FanManager/PintSizeFanManager.service /etc/systemd/system/
-sudo systemctl enable PintSizeFanManager.service
-sudo systemctl start PintSizeFanManager.service
+/bin/bash ~/genmon-addon/FanManager/Setup.sh
 
 echo "Install CpativePortal"
-sudo apt install python3-flask -y
-sudo cp ~/genmon-addon/CaptivePortal/hosts.conf /etc/NetworkManager/dnsmasq-shared.d/
-sudo cp ~/genmon-addon/CaptivePortal/CaptivePortal.service /etc/systemd/system/
-sudo systemctl enable CaptivePortal.service
-sudo systemctl start CaptivePortal.service
+/bin/bash ~/genmon-addon/CaptivePortal/Setup.sh
+
+
 cd ~/genmon-addon/
 git config --global --add safe.directory '*'
 
