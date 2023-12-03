@@ -6,6 +6,7 @@ In the Raspberry Pi imager:
 * Set username and password checked
 * Username: genmonpi
 * Password: raspberry
+* Setup WiFi details if you desire
 * Timezone: America/New_York
 * Keyboard layout: us
 
