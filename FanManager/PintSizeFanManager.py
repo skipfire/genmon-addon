@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import os
 import time
 
-onTemp = 40 #Temperature in Celsius
+onTemp = 60 #Temperature in Celsius
 
 fanIo = 9
 fanOn = False
