@@ -12,9 +12,6 @@ echo "Install PintSizeFanManager"
 echo "Install CaptivePortal"
 /bin/bash ~/genmon-addon/CaptivePortal/Setup.sh
 
-echo "Install HatTester"
-/bin/bash ~/genmon-addon/HatTester/Setup.sh
-
 echo "Clone and install GenMon"
 echo 'dtoverlay=w1-gpio' | sudo tee -a /boot/firmware/config.txt
 cd ~/
