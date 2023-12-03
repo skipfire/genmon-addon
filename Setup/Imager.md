@@ -1,16 +1,16 @@
 # Making images with the Raspberry Pi Imager
 In the Raspberry Pi imager:
-* Choose the default top option, this should be the current Raspberry Pi OS, 64-bit, with GUI.
+* Pick either Bookworm GUI or Lite (Console only), 64-bit is recommended but 32-bit should work
 * Hostname: genmon
 * Enable SSH checked, Use password authentication
 * Set username and password checked
 * Username: genmonpi
 * Password: raspberry
 * Setup WiFi details if you desire
-* Timezone: America/New_York
+* Timezone: it should default to your system's timezone, but just change it if not.
 * Keyboard layout: us
 
 After booting: 
-* Set WiFi country code
-* Set boot mode to GUI without automatic login
 * Change the password!
+* Set WiFi country code
+* Set boot mode to GUI or Console without automatic login
