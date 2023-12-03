@@ -4,13 +4,17 @@ cd ~/genmon-addon/
 git config --global --add safe.directory '*'
 
 echo "Install Log2ram"
-/bin/bash ./Log2Ram.sh
+/bin/bash ~/genmon-addon/Setup/Log2Ram.sh
 
 echo "Install PintSizeFanManager"
 /bin/bash ~/genmon-addon/FanManager/Setup.sh
 
 echo "Install CaptivePortal"
 /bin/bash ~/genmon-addon/CaptivePortal/Setup.sh
+
+echo "Install HatTester"
+cd ~/genmon-addon/HatTester/
+/bin/bash ~/genmon-addon/HatTester/Setup.sh
 
 echo "Clone and install GenMon"
 echo 'dtoverlay=w1-gpio' | sudo tee -a /boot/firmware/config.txt
