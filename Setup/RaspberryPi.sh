@@ -1,5 +1,8 @@
 /bin/bash ./Common.sh
 
+cd ~/genmon-addon/
+git config --global --add safe.directory '*'
+
 echo "Install Log2ram"
 echo "deb [signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bookworm main" | sudo tee /etc/apt/sources.list.d/azlux.list
 sudo wget -O /usr/share/keyrings/azlux-archive-keyring.gpg  https://azlux.fr/repo.gpg
@@ -12,12 +15,11 @@ sudo sed -i "s/LOG_DISK_SIZE=100M/LOG_DISK_SIZE=300M/g" /etc/log2ram.conf
 echo "Install PintSizeFanManager"
 /bin/bash ~/genmon-addon/FanManager/Setup.sh
 
-echo "Install CpativePortal"
+echo "Install CaptivePortal"
 /bin/bash ~/genmon-addon/CaptivePortal/Setup.sh
 
-
-cd ~/genmon-addon/
-git config --global --add safe.directory '*'
+echo "Install HatTester"
+/bin/bash ~/genmon-addon/HatTester/Setup.sh
 
 echo "Clone and install GenMon"
 echo 'dtoverlay=w1-gpio' | sudo tee -a /boot/firmware/config.txt
