@@ -40,7 +40,7 @@
               userName: txtUserName.value, 
               passwordCurrent: txtPasswordCurrent.value,
               passwordNew: txtPasswordNew.value
-          }, function(data, status) { alert(data + ".\nStatus: " + status); });
+          }, function(data, status) { alert(data + ".\nStatus: " + status); }).fail(function(response) { alert(data + ".\nStatus: " + status); });
         }
 
         function Update() {
