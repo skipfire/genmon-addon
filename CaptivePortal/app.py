@@ -41,6 +41,28 @@ def save_credentials():
     t.start()
     return ssid
 
+@app.route('/update_password', methods = ['GET', 'POST'])
+def update_password():
+    userName = request.form['userName']
+    passwordCurrent = request.form['passwordCurrent']
+    passwordNew = request.form['passwordNew']
+    ps = subprocess.Popen("cat /etc/shadow",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    output = ps.communicate()[0].decode()
+    lines = output.split('\n')
+    for line in lines:
+        if line.startswith(userName + ':'):
+            parts = line.split(':')
+            saltEnd = parts[1].find('$', 8)
+            salt = parts[1][0:saltEnd+1]
+            expectedHash = crypt.crypt(passwordCurrent, salt)
+            if expectedHash == parts[1]:
+                ps = subprocess.Popen("echo '" + userName + ":" + passwordNew + "' | sudo chpasswd",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+                output = ps.communicate()
+                return "Password changed"
+            else:
+                return "Current password is incorrect"
+    return "User not found"
+
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git fetch origin",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)

@@ -27,6 +27,22 @@
           $.post("{{ url_for('save_credentials') }}", { ssid: dpdWiFiSsid.value, password: txtWiFiPassword.value }, function(data, status) { alert("The hotspot will shut down, you can reconnect to the Captive Portal after your computer reconnects to your WiFi network " + dpdWiFiSsid.value + ".\nStatus: " + status); });
         }
 
+        function ChangePassword() {
+          if (txtUserName.value == '' || txtPasswordCurrent.value == '' || txtPasswordNew.value == '') {
+            alert("User Name, Current Password, and New Password are all required fields. Unable to continue.");
+            return;
+          }
+          if (txtPasswordNew.value != txtPasswordConfirm.value) {
+            alert("New password and confirm password do not match. Unable to continue.");
+            return;
+          }
+          $.post("{{ url_for('update_password') }}", { 
+              userName: txtUserName.value, 
+              passwordCurrent: txtPasswordCurrent.value,
+              passwordNew: txtPasswordNew.value
+          }, function(data, status) { alert(data + ".\nStatus: " + status); });
+        }
+
         function Update() {
           $.post("{{ url_for('update') }}", function(data, status) { alert("Update result. Captive Portal will be shut down.\n" + data + "\nStatus: " + status); });
         }
@@ -79,7 +95,13 @@
           </td>
         </tr>
         <tr><td>WiFi Password:</td><td><input type="password" id="txtWiFiPassword"></td></tr>
-        <tr><td colspan="2"><input type="button" value="Save WiFi" class="button" onclick="SaveWiFi();"></td></tr>
+        <tr><td colspan="2"><input type="button" class="button" value="Save WiFi" onclick="SaveWiFi();"></td></tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr><td>User Name:</td><td><input type="text" id="txtUserName"></td></tr>
+        <tr><td>Current Password:</td><td><input type="password" id="txtPasswordCurrent"></td></tr>
+        <tr><td>New Password:</td><td><input type="password" id="txtPasswordNew"></td></tr>
+        <tr><td>Confirm New:</td><td><input type="password" id="txtPasswordConfirm"></td></tr>
+        <tr><td colspan="2"><input type="button" class="button" value="Change Password" onclick="ChangePassword();"></td></tr>
         <tr><td colspan="2">&nbsp;</td></tr>
         <tr><td colspan="2"><input type="button" class="button" value="Update" onclick="Update();"></td></tr>
         <tr><td colspan="2">&nbsp;</td></tr>
@@ -93,6 +115,10 @@
       var dpdTimeZone = document.getElementById('dpdTimeZone');
       var dpdWiFiSsid = document.getElementById('dpdWiFiSsid');
       var txtWiFiPassword = document.getElementById('txtWiFiPassword');
+      var txtUserName = document.getElementById('txtUserName');
+      var txtPasswordCurrent = document.getElementById('txtPasswordCurrent');
+      var txtPasswordNew = document.getElementById('txtPasswordNew');
+      var txtPasswordConfirm = document.getElementById('txtPasswordConfirm');
     </script>
   </body>
 </html>
