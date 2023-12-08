@@ -61,8 +61,8 @@ def update_password():
                 output = ps.communicate()
                 return "Password changed"
             else:
-                return "Current password is incorrect"
-    return "User not found"
+                return "Current password is incorrect", 401
+    return "User not found", 404
 
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
