@@ -1,11 +1,12 @@
-import fileinput
 from flask import Flask, render_template, request
+from threading import Thread
+import crypt
+import fileinput
 import os
 import RPi.GPIO as GPIO
 import subprocess
 import sys
 import time
-from threading import Thread
 
 app = Flask(__name__)
 
