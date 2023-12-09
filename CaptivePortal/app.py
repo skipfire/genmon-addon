@@ -72,6 +72,7 @@ def update():
     output = output + ps.communicate()[0]
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/*'])
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/objects/*'])
+    subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/logs/refs/remotes/origin/main'])
     def update_thread():
         time.sleep(2)
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
