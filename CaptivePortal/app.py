@@ -71,7 +71,7 @@ def update():
     ps = subprocess.Popen("GIT_DIR=/home/genmonpi/genmon-addon/.git git reset --hard origin/main",shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     output = output + ps.communicate()[0]
     subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/*'])
-    subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/objects*'])
+    subprocess.run(['chown', 'genmonpi:genmonpi', '/home/genmonpi/genmon-addon/.git/objects/*'])
     def update_thread():
         time.sleep(2)
         subprocess.run(['systemctl', 'restart', 'CaptivePortal'])
