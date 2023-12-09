@@ -2,7 +2,7 @@
 sudo systemctl stop CaptivePortal
 sudo systemctl stop PintSizeFanManager
 source ./venv/bin/activate
-python HatTester.py
+python /home/genmonpi/genmon-addon/HatTester/HatTester.py
 deactivate
 sudo systemctl start CaptivePortal
 sudo systemctl start PintSizeFanManager
