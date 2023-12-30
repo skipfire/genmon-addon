@@ -8,6 +8,10 @@ cd genmon-addon/Setup
 ```
 After it installs all the components it will prompt you to reboot, press 'y' and it will reboot. Once it boots back up you should be done with GenMon, the Captive Portal, and the Fan Manager all being installed and running. Keep in mind that when it is not connected to a generator, GenMon does take an extra minute or two to boot up as it waits for an initial timeout on all data reads from the not-connected generator. The RAMDISK (log2ram), fan manager, captive portal, and genmon will all be installed at this point and you do not need to follow any instructions to install them.
 
+Set the WiFi country and turn off Auto login in raspi-config.
+
+If you are setting this up for a specific install and not a reusable image, go ahead and connect the WiFi, set the Time Zone, and chnage the password.
+
 ## PintSize HAT Fan Manager setup (HATs v2.3 and up)
 The fan manager service is installed on preloaded units that support it. To manually install it elsewhere, log into your Pi with ssh or open a terminal in the OS UI, then run the following commands.  The first two simply download the files, the third command moves the service definition to the appropriate folder, and the last two lines enable and start the fan service.  This first works with v2.3 HATs.
 ```
