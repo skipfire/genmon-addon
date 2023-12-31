@@ -12,17 +12,13 @@ Set the WiFi country and turn off Auto login in raspi-config.
 
 If you are setting this up for a specific install and not a reusable image, go ahead and connect the WiFi, set the Time Zone, and chnage the password.
 
-## PintSize HAT Fan Manager setup (HATs v2.3 and up)
-The fan manager service is installed on preloaded units that support it. To manually install it elsewhere, log into your Pi with ssh or open a terminal in the OS UI, then run the following commands.  The first two simply download the files, the third command moves the service definition to the appropriate folder, and the last two lines enable and start the fan service.  This first works with v2.3 HATs.
+## PintSize HAT Fan control (HATs v2.3 and up)
+The PintSizeFanManager is retired (the code will be removed in January 2024) and we recommend you use the built-in fan manager that can be configured in raspi-config.  The setting is under performance, fan; it will ask you for the GPIO to use and you want to pick 9.  You can set your target temp between 60 and 80, and when the Pi reaches that temp it will turn the fan on until the CPU temp is dropped to 10 degrees below that point (example of 60 for the on point would have 50 for the off point).
+
+If you have the fan manager, you can disable it with the following command:
 ```
-git clone https://github.com/skipfire/genmon-addon
+sudo systemctl disable PintSizeFanManager
 ```
-If you are using a login other than genmonpi, you need to use nano to edit line 7 in PintSizeFanManager.service and change `genmonpi` to your username.
-```
-sudo ~/genmon-addon/FanManager/Setup.sh
-```
-The temperature the fan activates at can be changed PintSizeFanManager.py, just change the number on the 5th line to whatever temperature you want. If you want it to activate at 50°C (122°F), you would update that line of code to the following:
-`onTemp = 50 #Temperature in celcius`. The code is set to turn off the fan once the CPU is at least 1 degree below the activation temp.  This code will not work on a non-Raspberry Pi as it uses the RPi.GPIO library.
 
 ## Running GenMon in Docker
 We do not provide support for running in Docker, however we do have a starter dockerfile and docker-compose file in the docker folder.  This can be a great option when used with Serial over TCP.
