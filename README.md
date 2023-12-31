@@ -41,7 +41,7 @@ The current plan is to have OpenGenSet be open source, though with restricted li
 * CaptivePortal - all the files for the CaptivePortal service supporting configuration of your Pi.
 * docker - files supporting setting up a docker image for GenMon, primarily used with a serial-TCP bridge. This is based on Debian.
 * ESP32 - contains the ESPHome device yaml file for OpenGenSet to be used in serial bridge mode.
-* FanManager - the files for the fan manager.
+* FanManager (RETIRED) - the files for the fan manager (will be deleted in January 2024).
 * Genmon HAT 2.0 Instructions.pdf - instructions linked on the store site for installing the v2.0+ HATs, pHATs, and pre-loaded units.
 * HatTester - the files used to test the generator HATs, pHATs, and toppers on a workbench.
 * LICENSE.md - the license (currently MIT) for this project. We do ask, but not require, that any improvements to these files make their way back here.
