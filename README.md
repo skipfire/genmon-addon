@@ -8,17 +8,17 @@ cd genmon-addon/Setup
 ```
 After it installs all the components it will prompt you to reboot, press 'y' and it will reboot. Once it boots back up you should be done with GenMon, the Captive Portal, and the Fan Manager all being installed and running. Keep in mind that when it is not connected to a generator, GenMon does take an extra minute or two to boot up as it waits for an initial timeout on all data reads from the not-connected generator. The RAMDISK (log2ram), fan manager, captive portal, and genmon will all be installed at this point and you do not need to follow any instructions to install them.
 
-## PintSize HAT Fan Manager setup (HATs v2.3 and up)
-The fan manager service is installed on preloaded units that support it. To manually install it elsewhere, log into your Pi with ssh or open a terminal in the OS UI, then run the following commands.  The first two simply download the files, the third command moves the service definition to the appropriate folder, and the last two lines enable and start the fan service.  This first works with v2.3 HATs.
+Set the WiFi country and turn off Auto login in raspi-config.
+
+If you are setting this up for a specific install and not a reusable image, go ahead and connect the WiFi, set the Time Zone, and chnage the password.
+
+## PintSize HAT Fan control (HATs v2.3 and up)
+The PintSizeFanManager is retired (the code will be removed in January 2024) and we recommend you use the built-in fan manager that can be configured in raspi-config.  The setting is under performance, fan; it will ask you for the GPIO to use and you want to pick 9.  You can set your target temp between 60 and 80, and when the Pi reaches that temp it will turn the fan on until the CPU temp is dropped to 10 degrees below that point (example of 60 for the on point would have 50 for the off point).
+
+If you have the fan manager, you can disable it with the following command:
 ```
-git clone https://github.com/skipfire/genmon-addon
+sudo systemctl disable PintSizeFanManager
 ```
-If you are using a login other than genmonpi, you need to use nano to edit line 7 in PintSizeFanManager.service and change `genmonpi` to your username.
-```
-sudo ~/genmon-addon/FanManager/Setup.sh
-```
-The temperature the fan activates at can be changed PintSizeFanManager.py, just change the number on the 5th line to whatever temperature you want. If you want it to activate at 50°C (122°F), you would update that line of code to the following:
-`onTemp = 50 #Temperature in celcius`. The code is set to turn off the fan once the CPU is at least 1 degree below the activation temp.  This code will not work on a non-Raspberry Pi as it uses the RPi.GPIO library.
 
 ## Running GenMon in Docker
 We do not provide support for running in Docker, however we do have a starter dockerfile and docker-compose file in the docker folder.  This can be a great option when used with Serial over TCP.
@@ -41,7 +41,7 @@ The current plan is to have OpenGenSet be open source, though with restricted li
 * CaptivePortal - all the files for the CaptivePortal service supporting configuration of your Pi.
 * docker - files supporting setting up a docker image for GenMon, primarily used with a serial-TCP bridge. This is based on Debian.
 * ESP32 - contains the ESPHome device yaml file for OpenGenSet to be used in serial bridge mode.
-* FanManager - the files for the fan manager.
+* FanManager (RETIRED) - the files for the fan manager (will be deleted in January 2024).
 * Genmon HAT 2.0 Instructions.pdf - instructions linked on the store site for installing the v2.0+ HATs, pHATs, and pre-loaded units.
 * HatTester - the files used to test the generator HATs, pHATs, and toppers on a workbench.
 * LICENSE.md - the license (currently MIT) for this project. We do ask, but not require, that any improvements to these files make their way back here.

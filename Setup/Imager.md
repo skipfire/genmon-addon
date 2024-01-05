@@ -1,6 +1,6 @@
 # Making images with the Raspberry Pi Imager
 In the Raspberry Pi imager:
-* Pick either Bookworm GUI or Lite (Console only), 64-bit is recommended but 32-bit should work
+* Pick either Bookworm GUI or Lite (Console only), 32-bit has better performance in the OS UI, especially if you are using a Pi Zero 2 or Pi 3.  64-bit works fine especially if you are not using the OS UI beyond initial setup of the device.
 * Hostname: genmon
 * Enable SSH checked, Use password authentication
 * Set username and password checked
