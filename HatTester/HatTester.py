@@ -97,7 +97,7 @@ def GetErrorInfo():
 #        time.sleep(1)
 #except KeyboardInterrupt:
 #    print("KeyboardInterrupt button wait")
-buttonPressed()
+buttonPressed(10)
 
 try:
     device='/dev/serial0' if len(sys.argv)<2 else sys.argv[1]
