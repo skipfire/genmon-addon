@@ -90,13 +90,14 @@ def GetErrorInfo():
     return fname + ":" + str(lineno)
 
 
-GPIO.add_event_detect(buttonIo, GPIO.FALLING, callback=buttonPressed)
-print("Waiting for button...")
-try:
-    while buttonTested == False:
-        time.sleep(1)
-except KeyboardInterrupt:
-    print("KeyboardInterrupt button wait")
+# GPIO.add_event_detect(buttonIo, GPIO.FALLING, callback=buttonPressed)
+# print("Waiting for button...")
+# try:
+#    while buttonTested == False:
+#        time.sleep(1)
+#except KeyboardInterrupt:
+#    print("KeyboardInterrupt button wait")
+buttonPressed()
 
 try:
     device='/dev/serial0' if len(sys.argv)<2 else sys.argv[1]
