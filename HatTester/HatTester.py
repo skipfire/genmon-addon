@@ -40,12 +40,12 @@ if not sensorFound:
 
 def buttonPressed(channel):
     global buttonTested
+    buttonTested = True
     GPIO.output(blueIo,GPIO.HIGH)
     GPIO.output(blueNanoPiIo,GPIO.HIGH)
     GPIO.output(redIo,GPIO.LOW)
     GPIO.output(fanIo, GPIO.HIGH)
     print("Button success")
-    buttonTested = True
     time.sleep(1.5)
 
 #From GenMon OtherApps/serialtest.py
