@@ -40,12 +40,12 @@ if not sensorFound:
 
 def buttonPressed(channel):
     global buttonTested
+    buttonTested = True
     GPIO.output(blueIo,GPIO.HIGH)
     GPIO.output(blueNanoPiIo,GPIO.HIGH)
     GPIO.output(redIo,GPIO.LOW)
     GPIO.output(fanIo, GPIO.HIGH)
     print("Button success")
-    buttonTested = True
     time.sleep(1.5)
 
 #From GenMon OtherApps/serialtest.py
@@ -88,7 +88,6 @@ def GetErrorInfo():
     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
     lineno = exc_tb.tb_lineno
     return fname + ":" + str(lineno)
-
 
 GPIO.add_event_detect(buttonIo, GPIO.FALLING, callback=buttonPressed)
 print("Waiting for button...")
