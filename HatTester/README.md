@@ -1,6 +1,9 @@
 # HatTester
 The HAT tester script validates that the Pi with a HAT/pHAT is ready for use. This script is built assuming that it is on a pre-loaded unit, attempting to use this on your own image will require modifications. The tested functions include the button, tri-color LED, TTL chip, and the serial configuration of the OS. It does not verify any GenMon configuration, but if this works then the Pi OS and hardware are correctly setup and ready for GenMon.
 
+# HatTester.sh vs HatTesterLegacy.sh
+HatTester.sh is intended for use with Bookworm and is compatible with the last images we shipped.  HatTesterLegacy.sh is for use with Bullseye.  Bookworm is setup to require python virtual environments and requires a couple of extra steps that are not needed and will throw errors if used on Bullseye.
+
 # Knowledge level
 This guide is being written assuming you know virtually nothing and the guide will be step by step. This does assume you have already connected the Pi to your network, if you have not then stop and get that done first - or you can do this on the Pi with a keyboard and monitor.
 
