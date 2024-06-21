@@ -26,11 +26,17 @@ After a successful login you will be promopted with
 ```sh
 genmonpi@genmon:~ $
 ```
-You can copy and paste the following commands
+You can copy and paste the following commands if you are on a Bookworm based image.
 ```sh
 cd genmon-addon/HatTester
 ./HatTester.sh
 ```
+If you are on a Bullseye based image use these commands:
+```sh
+cd genmon-addon/HatTester
+./HatTesterLegacy.sh
+```
+
 This will stop GenMon, check the onboard temperature sensor, and then turn the LED red. \
 Before continuing you need to have the Loopback Tester in place, or your shorting method, once ready briefly press the button. \
 The LED will hopefully quickly turn green, then blue, then white, then go off. Once the light is blue, white, or off you can stop shorting the data pins. \
