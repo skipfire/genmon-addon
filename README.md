@@ -33,6 +33,7 @@ If you are setting this up for a specific install and not a reusable image, go a
 * The hotspot will show up with a name of `config` and the key is `genmon00`. Connect to it and then browse to http://genmon/ or http://10.42.0.1/ to configure.  It may take a moment for your device to fully connect to the endpoint. If the page is not found give it up to 2 minutes. Mobile devices may automatically drop the connection as it will not provide internet access.
 * You can load just the portal by pressing the button 3 times, the LED will turn green, and then you can connect to your device at http://genmon/ or by IP.
 * Be sure to shut down the portal when you are done. Update will shut down the portal after it updates (so that it can apply the update), and the shutdown portal and any reboot will both shut it down as well.
+* The Captive Portal does not work on releases before Bookworm.
 
 ## RAM Disk
 * Images created after September 30th, 2023 have RAMDISK setup for /var/log/. This reduces wear and tear on the SD card, however can also result in lost log data in the event it does not shut off cleanly. Logs should be backed to the SD card daily and upon a clean shutdown.
