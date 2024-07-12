@@ -6,9 +6,6 @@ git config --global --add safe.directory '*'
 echo "Install Log2ram"
 /bin/bash ~/genmon-addon/Setup/Log2Ram.sh
 
-echo "Install CaptivePortal"
-/bin/bash ~/genmon-addon/CaptivePortal/Setup.sh
-
 echo "Install HatTester"
 cd ~/genmon-addon/HatTester/
 /bin/bash ~/genmon-addon/HatTester/Setup.sh
