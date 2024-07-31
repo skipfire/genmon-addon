@@ -17,6 +17,7 @@ logger:
 api:
 
 ota:
+  platform: esphome
 
 wifi:
   ssid: !secret wifi_ssid
@@ -28,14 +29,13 @@ wifi:
 
 captive_portal:
   
-# Example configuration entry
-dallas:
-  - pin: 33
+one_wire:
+  - platform: gpio
+    pin: 33
 
 # Individual sensors
 sensor:
-  - platform: dallas
-    index: 0
+  - platform: dallas_temp
     name: "$display_name Board Temperature"
   - platform: wifi_signal
     name: "$display_name WiFi Signal Sensor"
@@ -54,7 +54,7 @@ web_server:
   
 switch:
   - platform: restart
-    name: "GenMon Bridge Restart"
+    name: "$display_name Bridge Restart"
 
 external_components:
   - source: github://skipfire/esphome-stream-server
