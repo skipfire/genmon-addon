@@ -29,6 +29,7 @@ wifi:
 
 captive_portal:
   
+# Example configuration entry
 one_wire:
   - platform: gpio
     pin: 33
