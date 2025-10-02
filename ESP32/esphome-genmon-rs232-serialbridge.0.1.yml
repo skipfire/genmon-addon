@@ -55,7 +55,7 @@ web_server:
   
 switch:
   - platform: restart
-    name: "GenMon Bridge Restart"
+    name: "$display_name Bridge Restart"
 
 external_components:
   - source: github://skipfire/esphome-stream-server
